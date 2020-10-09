@@ -1,6 +1,6 @@
 """TR-064 client."""
 from io import BytesIO
-import xml.etree.ElementTree as ET
+import lxml.etree as ET
 import requests
 from requests.auth import HTTPDigestAuth
 
@@ -71,7 +71,7 @@ class Action():
             arg.text = str(kwargs[key])
 
         # soap._InitChallenge(header)
-        data = ET.tostring(self.envelope, encoding='utf-8', short_empty_elements=False, xml_declaration=True).decode()
+        data = ET.tostring(self.envelope, encoding='utf-8', xml_declaration=True).decode()
         request = requests.post('{0}{1}'.format(self.base_url, self.control_url),
                                 headers=self.headers,
                                 auth=self.auth,
