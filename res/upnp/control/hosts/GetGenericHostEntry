@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<s:Body>
+<u:GetGenericHostEntryResponse xmlns:u="urn:dslforum-org:service:Hosts:1">
+<NewIPAddress>192.168.179.1</NewIPAddress>
+<NewAddressSource>DHCP</NewAddressSource>
+<NewLeaseTimeRemaining>0</NewLeaseTimeRemaining>
+<NewMACAddress>AA:BB:CC:DD:EE:FF</NewMACAddress>
+<NewInterfaceType>Ethernet</NewInterfaceType>
+<NewActive>0</NewActive>
+<NewHostName>dummy</NewHostName>
+</u:GetGenericHostEntryResponse>
+</s:Body>
+</s:Envelope>
