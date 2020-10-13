@@ -1,7 +1,7 @@
 """TR-064 setuptools configuration."""
 
 import setuptools
-import tr064.version
+import tr064
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -35,6 +35,10 @@ setuptools.setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     python_requires='>=3.5',
+    install_requires=[
+        'requests',
+        'lxml'
+    ],
     setup_requires=["pytest-runner"],
     tests_require=["pytest"]
 )

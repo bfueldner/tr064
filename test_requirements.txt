@@ -3,4 +3,5 @@ pytest-codestyle
 pytest-flake8
 pytest-pylint
 pytest-cov
+pylint
 coveralls
