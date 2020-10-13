@@ -17,11 +17,19 @@ from tr064.device import Device
 
 # pylint: disable=too-few-public-methods
 class Client():
-    """TR-064 client."""
+    """TR-064 client.
 
-    def __init__(self, user, password, base_url='https://fritz.box:49443'):
+    :param str username:
+        Username with access to router.
+    :param str password:
+        Passwort to access router.
+    :param str base_url:
+        URL to router.
+    """
+
+    def __init__(self, username, password, base_url='https://192.168.178.1:49443'):
         self.base_url = base_url
-        self.auth = HTTPDigestAuth(user, password)
+        self.auth = HTTPDigestAuth(username, password)
 
         self.devices = {}
 
@@ -47,4 +55,4 @@ class Client():
                                        namespaces=TR064_DEVICE_NAMESPACE).split(':')[-2]
 
                 if name not in self.devices:
-                    self.devices[name] = Device(self.auth, self.base_url, device)
+                    self.devices[name] = Device(device, self.auth, self.base_url)

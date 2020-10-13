@@ -17,10 +17,26 @@ from tr064.attribute_dict import AttributeDict
 
 # pylint: disable=too-many-instance-attributes, too-few-public-methods
 class Action():
-    """TR-064 action."""
+    """TR-064 action.
+
+    :param lxml.etree.Element xml:
+        XML action element
+    :param HTTPBasicAuthHandler auth:
+        HTTPBasicAuthHandler object, e.g. HTTPDigestAuth
+    :param str base_url:
+        URL to router.
+    :param str name:
+        Action name
+    :param str service_type:
+        Service type
+    :param str service_id:
+        Service ID
+    :param str control_url:
+        Control URL
+    """
 
     # pylint: disable=too-many-arguments
-    def __init__(self, auth, base_url, name, service_type, service_id, control_url, xml):
+    def __init__(self, xml, auth, base_url, name, service_type, service_id, control_url):
         self.auth = auth
         self.base_url = base_url
         self.name = name
@@ -56,12 +72,12 @@ class Action():
         missing_arguments = self.in_arguments.keys() - kwargs.keys()
         if missing_arguments:
             raise TR064MissingArgumentException(
-                'Missing argument(s) \''+"', '".join(missing_arguments)+'\'')
+                'Missing argument(s) \'' + "', '".join(missing_arguments) + '\'')
 
         unknown_arguments = kwargs.keys() - self.in_arguments.keys()
         if unknown_arguments:
             raise TR064UnknownArgumentException(
-                'Unknown argument(s) \''+"', '".join(unknown_arguments)+'\'')
+                'Unknown argument(s) \'' + "', '".join(unknown_arguments) + '\'')
 
         # Add SOAP action to header
         self.headers['soapaction'] = '"{}#{}"'.format(self.service_type, self.name)

@@ -49,11 +49,11 @@ class Service():
                 name = action.findtext('name', namespaces=TR064_SERVICE_NAMESPACE)
                 canonical_name = name.replace('-', '_')
                 self.actions[canonical_name] = Action(
+                    action,
                     self.auth,
                     self.base_url,
                     name,
                     self.service_type,
                     self.service_id,
-                    self.control_url,
-                    action
+                    self.control_url
                 )

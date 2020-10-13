@@ -12,7 +12,7 @@ import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse
 
-import tr064.client
+import tr064
 
 
 class TR064Server(BaseHTTPRequestHandler):
@@ -79,7 +79,7 @@ class TestClient(unittest.TestCase):
 
     def setUp(self):
         """Set-up client."""
-        self.client = tr064.client.Client('user', 'password', 'http://localhost:49000')
+        self.client = tr064.Client('username', 'password', 'http://localhost:49000')
 
     def test_unknown_device(self):
         """Test unknown device."""

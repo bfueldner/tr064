@@ -1,0 +1,6 @@
+pytest
+pytest-codestyle
+pytest-flake8
+pytest-pylint
+pytest-cov
+coveralls

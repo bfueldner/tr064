@@ -8,12 +8,20 @@ from tr064.service_list import ServiceList
 
 # pylint: disable=too-few-public-methods
 class Device():
-    """TR-064 device."""
+    """TR-064 device.
 
-    def __init__(self, auth, base_url, xml_node):
+    :param lxml.etree.Element xml:
+        XML device element
+    :param HTTPBasicAuthHandler auth:
+        HTTPBasicAuthHandler object, e.g. HTTPDigestAuth
+    :param str base_url:
+        URL to router.
+    """
+
+    def __init__(self, xml, auth, base_url):
         self.services = {}
 
-        for service in xml_node.findall('./serviceList/service', namespaces=TR064_DEVICE_NAMESPACE):
+        for service in xml.findall('./serviceList/service', namespaces=TR064_DEVICE_NAMESPACE):
             service_type = service.findtext('serviceType', namespaces=TR064_DEVICE_NAMESPACE)
             service_id = service.findtext('serviceId', namespaces=TR064_DEVICE_NAMESPACE)
             control_url = service.findtext('controlURL', namespaces=TR064_DEVICE_NAMESPACE)

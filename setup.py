@@ -12,7 +12,7 @@ setuptools.setup(
     description="TR-064 python API",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    keywords="TR-064 dslforum router AVM Fritz!Box",
+    keywords="TR-064 LAN DSL CPE configuration broadband forum home router",
     license="MIT",
     author="Benjamin Füldner",
     author_email="benjamin@fueldner.net",
