@@ -16,7 +16,7 @@ setuptools.setup(
     license="MIT",
     author="Benjamin Füldner",
     author_email="benjamin@fueldner.net",
-    url="https://code.fueldner.net/opensource/tr064",
+    url="https://github.com/bfueldner/tr064",
     project_urls={
         'Source': 'https://github.com/bfueldner/tr064',
         'Bug Reports': 'https://github.com/bfueldner/tr064/issues',
@@ -26,7 +26,6 @@ setuptools.setup(
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
@@ -34,7 +33,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
-    python_requires='>=3.5',
+    python_requires='>=3.6',
     install_requires=[
         'requests',
         'lxml'
